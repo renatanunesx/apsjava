@@ -34,6 +34,6 @@ function fImprimir_K_Maiores_Primos(num, qtde){
  
 }
  
-let numero = parseInt(prompt("digite um numero neste campo:"));
-let qtdePrimos = parseInt(prompt("digite a quantidade maxima de numeros primos que quer ver:"));
+let numero = parseInt(prompt("ola, digite um numero neste campo:"));
+let qtdePrimos = parseInt(prompt("ola, digite a quantidade maxima de numeros primos que quer ver:"));
 fImprimir_K_Maiores_Primos(numero, qtdePrimos);
