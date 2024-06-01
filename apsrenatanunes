@@ -5,35 +5,47 @@ Aluno: Renata Nunes Gomes
 Matrícula: 2024101304
 */
  
-function fVerificarPrimo(num){
-    if(num<2){
+function isPrime(num) {
+    if (num <= 1) {
         return false;
-    }//if
- 
-    for(let i=num-1; i>=2;i--){
-        let resto = num % i;
-        if(resto == 0){
+    }
+
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) {
             return false;
-        }//if
-    }//for
+        }
+    }
+
     return true;
 }
- 
-function fImprimir_K_Maiores_Primos(num, qtde){
-    let contador = 0;
-    for(let i=num; i>=2; i--){
-        let ehPrimo = fVerificarPrimo(i);
-        if(ehPrimo){
-            console.log("O número ["+i +"] é primo!");
-            contador++;
-            if(contador==qtde){
-                return;
-            }//if
-        }//if
-    }//for
- 
+
+function findLargestPrimes() {
+    let userInput = prompt("Digite um número:");
+
+    if (userInput === null) {
+        console.log("Nenhum número foi inserido. Por favor, tente novamente.");
+        return;
+    }
+
+    let startNum = parseInt(userInput);
+
+    if (isNaN(startNum)) {
+        console.log("Entrada inválida. Por favor, digite um número.");
+        return;
+    }
+
+    let primes = [];
+    let num = startNum;
+
+    while (primes.length < 10) {
+        if (isPrime(num)) {
+            primes.push(num);
+        }
+        num++;
+    }
+
+    console.log("os 10 maiores números primos a partir de " + startNum + " são:");
+    console.log(primes);
 }
- 
-let numero = parseInt(prompt("ola, digite um numero neste campo:"));
-let qtdePrimos = parseInt(prompt("ola, digite a quantidade maxima de numeros primos que quer ver:"));
-fImprimir_K_Maiores_Primos(numero, qtdePrimos);
+
+findLargestPrimes();
